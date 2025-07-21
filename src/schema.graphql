@@ -1,0 +1,64 @@
+enum ActionType {
+	ACTION_TYPE_UNSPECIFIED
+	WEBHOOK
+	LLM_WORKFLOW
+	EVENT
+	NIMBUS_CONTAINER
+}
+
+type MutationRoot {
+	"""
+	Runs a pipeline definition. Corresponds to the RunPipeline RPC.
+	"""
+	runPipeline(pipeline: PipelineInput!): RunPipelineResponse!
+}
+
+input PipelineInput {
+	id: String!
+	steps: [StepInput!]!
+	outputs: [String!]!
+}
+
+type QueryRoot {
+	"""
+	Example query to get a simple message
+	"""
+	hello: String!
+}
+
+type RunPipelineResponse {
+	success: Boolean!
+	message: String!
+	outputs: [StepOutput!]!
+}
+
+input StepInput {
+	id: String!
+	type: ActionType!
+	data: String!
+	target: String
+	dependsOn: String
+	expression: String
+}
+
+type StepOutput {
+	stepId: String!
+	resultJson: String!
+	error: String
+}
+
+
+type SubscriptionRoot {
+	"""
+	Example subscription to get updates on pipeline execution
+	"""
+	pipelineUpdates: String!
+}
+
+directive @include(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+directive @skip(if: Boolean!) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+schema {
+	query: QueryRoot
+	mutation: MutationRoot
+	subscription: SubscriptionRoot
+}
