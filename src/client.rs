@@ -1,20 +1,13 @@
 // --- graphql_client Query Definition ---
-use graphql_client::GraphQLQuery;
 
-// This uses the structs defined above (PipelineInput, etc.)
-// Make sure the paths in schema_path and query_path are correct
-#[derive(GraphQLQuery)]
-#[graphql(
-    schema_path = "src/schema.graphql", // Path to your GraphQL schema file (SDL format)
-    query_path = "src/run_pipeline.graphql", // Path to the mutation file
-    response_derives = "Debug, Clone, Deserialize", // Derives for generated response struct
-    variables_derives = "Debug, Clone" // Derives for generated variables struct
-)]
+pub type Json = serde_json::Value;
+// Use generated modules instead of proc macros
 
-pub struct RunPipeline;
+pub type RunPipelineVariables = crate::run_pipeline::run_pipeline::Variables;
+pub type RunPipelineResponseData = crate::run_pipeline::run_pipeline::ResponseData;
+pub type RunPipelineRunPipeline = crate::run_pipeline::run_pipeline::RunPipelineRunPipeline;
 
-// Type alias for the generated variables struct
-pub type PipelineInputVariables = run_pipeline::Variables;
-// Type alias for the specific data structure within the generated response
-// (maps to the 'runPipeline' field in the mutation response)
-pub type RunPipelineResponseData = run_pipeline::ResponseData;
+pub type CreatePipelineVariables = crate::create_pipeline::create_pipeline::Variables;
+pub type CreatePipelineResponseData = crate::create_pipeline::create_pipeline::ResponseData;
+pub type CreatePipelineCreatePipeline =
+    crate::create_pipeline::create_pipeline::CreatePipelineCreatePipeline;

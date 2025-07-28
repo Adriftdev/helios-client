@@ -4,6 +4,7 @@ enum ActionType {
 	LLM_WORKFLOW
 	EVENT
 	NIMBUS_CONTAINER
+	SCRIPT
 }
 
 type MutationRoot {
@@ -35,15 +36,17 @@ type RunPipelineResponse {
 input StepInput {
 	id: String!
 	type: ActionType!
-	data: String!
+	data: Json!
 	target: String
 	dependsOn: String
 	expression: String
 }
 
+scalar Json
+
 type StepOutput {
 	stepId: String!
-	resultJson: String!
+	resultJson: Json!
 	error: String
 }
 

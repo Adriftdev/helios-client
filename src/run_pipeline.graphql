@@ -1,11 +1,10 @@
-mutation RunPipeline($pipeline_input: PipelineInput!) {
-  runPipeline(pipeline: $pipeline_input) {
-    success
-    message
-    outputs {
-      stepId # Make sure StepOutput has stepId if you need callbacks
-      resultJson
-      error
+mutation RunPipeline($pipeline: RunPipelineInput!) {
+    runPipeline(pipeline: $pipeline) {
+        success
+        message
+        outputs {
+        stepId
+        resultJson
+        error        }
     }
-  }
 }

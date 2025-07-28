@@ -1,0 +1,14 @@
+mutation CreatePipeline($pipeline: CreatePipelineInput!) {
+    createPipeline(pipeline: $pipeline) {
+        id
+        trigger
+        steps {
+            id
+            type
+            target
+            dependsOn
+            expression
+            data
+        }
+    }
+}
