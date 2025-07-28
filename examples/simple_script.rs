@@ -16,6 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 2. Build the pipeline using the new DSL.
     let pipeline = PipelineBuilder::new("simple-script-pipeline")
         .script("echo_step", "echo 'Hello from a Helios script!'")
+        .then()
         .output("echo_step")
         .build();
 

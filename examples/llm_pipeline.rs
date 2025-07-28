@@ -5,7 +5,7 @@ use helios_client::HeliosGraphQLClient;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 1. Define the GraphQL server endpoint.
-    let graphql_endpoint = "http://adriftdev.ddns.net/api/graphql";
+    let graphql_endpoint = "http://localhost:8000/api/graphql";
 
     // 2. Build the pipeline using the new DSL.
     let pipeline = PipelineBuilder::new("llm-pipeline")

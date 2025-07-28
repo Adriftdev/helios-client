@@ -13,7 +13,7 @@ async fn main() -> Result<(), HeliosClientError> {
     // at the specified GraphQL endpoint.
 
     // 1. Define the GraphQL server endpoint.
-    let graphql_endpoint = "http://adriftdev.ddns.net/api/graphql";
+    let graphql_endpoint = "http://localhost:8000/api/graphql";
 
     // 2. Build the pipeline with a trigger.
     let pipeline = CreatePipelineBuilder::new("test")

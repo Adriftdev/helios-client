@@ -11,7 +11,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Step 2 reads /app/shared.txt and prints its contents.
 
     // 1. Define the GraphQL server endpoint.
-    let graphql_endpoint = "http://adriftdev.ddns.net/api/graphql";
+    let graphql_endpoint = "http://localhost:8000/api/graphql";
 
     // 2. Build the pipeline using the builder DSL.
     let pipeline = PipelineBuilder::new("shared-artifact-pipeline")

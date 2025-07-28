@@ -11,7 +11,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // at the specified GraphQL endpoint.
 
     // 1. Define the GraphQL server endpoint.
-    let graphql_endpoint = "http://adriftdev.ddns.net/api/graphql";
+    let graphql_endpoint = "http://localhost:8000/api/graphql";
 
     // 2. Build the pipeline using the new DSL.
     let pipeline = PipelineBuilder::new("conditional-pipeline")

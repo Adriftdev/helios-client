@@ -10,7 +10,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Step 1 writes to /app/step1.txt in its own volume.
     // Step 2 mounts a different volume and tries to read /app/step1.txt (should not find it).
 
-    let graphql_endpoint = "http://adriftdev.ddns.net/api/graphql";
+    let graphql_endpoint = "http://localhost:8000/api/graphql";
 
     let pipeline = PipelineBuilder::new("separate-artifact-pipeline")
         .container("step1", "alpine:latest")
